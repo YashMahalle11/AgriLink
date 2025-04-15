@@ -39,7 +39,7 @@ const EmptyState = () => (
 );
 
 const ProductGrid = ({ products = [], loading, error }) => {
-  console.log("🔍 ProductGrid received:", { products, loading, error });
+  
 
   // ✅ Handle states
   if (loading) return <LoadingSpinner />;
