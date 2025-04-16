@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import register from "../assets/register.webp";
+import register from "../assets/registerfinal.jpg";
 import { registerUser } from '../redux/slices/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { mergeCart } from '../redux/slices/cartSlice';
@@ -98,7 +98,7 @@ const Register = () => {
       </div> 
       <div className='hidden md:block w-1/2 bg-gray-800'>
       <div className='h-full flex flex-col justify-center items-center'>
-         <img src={register} alt='Login to Account' className='h-[750px] w-full object-cover'/>
+         <img src={register} alt='Login to Account' className='h-[670px] w-full object-cover'/>
       </div>
       
       </div>
