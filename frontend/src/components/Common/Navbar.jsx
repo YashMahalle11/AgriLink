@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from "react-router-dom"
 import {
   HiOutlineUser,
-  HiOutlineShoppingBag,
+  FaShoppingBasket,
   HiBars3BottomRight,
 } from "react-icons/hi2"
 import { IoMdClose } from "react-icons/io"
@@ -83,7 +83,7 @@ const Navbar = () => {
             <HiOutlineUser className='h-6 w-6 text-gray-700' />
           </Link>
           <button onClick={toggleCartDrawer} className='relative hover:text-gray-700'>
-            <HiOutlineShoppingBag className='h-6 w-6 text-gray-700' />
+            <FaShoppingBasket className='h-6 w-6 text-gray-700' />
             {cartItemCount > 0 && (
               <span className='absolute -top-1 bg-rabbit-red text-white text-xs rounded-full px-2 py-0.5'>
                 {cartItemCount}
