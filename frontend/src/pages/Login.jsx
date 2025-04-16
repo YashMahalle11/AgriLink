@@ -86,7 +86,7 @@ const Login = () => {
             </div>
             <div className='hidden md:block w-1/2 bg-gray-800'>
                 <div className='h-full flex flex-col justify-center items-center'>
-                    <img src={login} alt='Login to Account' className='h-[750px] w-full object-cover' />
+                    <img src={login} alt='Login to Account' className='h-[650px] w-full object-cover' />
                 </div>
             </div>
         </div>
