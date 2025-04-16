@@ -12,12 +12,13 @@ const Footer = () => {
   return <footer className='border-t py-12'>
     <div className='container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 ml-8'>
         <div>
-            <h3 className='text-lg text-gray-800 mb-4'>Newsletter</h3>
+            <h3 className='text-lg text-gray-800 mb-4'>🌾 Newsletter</h3>
             <p className='text-gray-500 mb-4'>
-                Be the first to hear about new products,exclusive evevts, and online offers. 
+            Stay connected with AgriLink!
+            Get the latest updates on fresh farm produce, seasonal deals, and exclusive offers — delivered straight from our farms to your inbox. 
             </p>
             <p className='font-medium text-sm text-gray-600 mb-6'>
-                Sign up and  get 10% of on your first order.
+                Sign up now and get 10% off your first order of fresh produce!
             </p>
             {/**Newsletter form */ }
             <form className='flex'>
