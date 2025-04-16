@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from "react-router-dom"
 import {
   HiOutlineUser,
-  FaShoppingBasket,
   HiBars3BottomRight,
 } from "react-icons/hi2"
 import { IoMdClose } from "react-icons/io"
 import { useSelector } from "react-redux"
 import SearchBar from './SearchBar'
 import CartDrawer from '../Layout/CartDrawer'
+import { FaShoppingBasket } from "react-icons/fa";
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
