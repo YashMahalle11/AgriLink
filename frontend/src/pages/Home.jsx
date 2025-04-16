@@ -62,16 +62,8 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      {/* Debug overlay - will appear in bottom right corner */}
-      <div className="fixed bottom-4 right-4 bg-white p-4 rounded-lg shadow-lg z-50 max-w-xs text-xs">
-        <h3 className="font-bold mb-2">Debug Info:</h3>
-        <pre>Products count: {products?.length || 0}</pre>
-        <pre>Loading: {loading.toString()}</pre>
-        <pre>Error: {error || 'null'}</pre>
-        <pre>Best Seller: {bestSellerProduct ? 'Loaded' : 'Loading'}</pre>
-        {bestSellerError && <pre className="text-red-500">Best Seller Error: {bestSellerError}</pre>}
-      </div>
+     <div>
+      
 
       <Hero />
       <CombineCollectionSection />
