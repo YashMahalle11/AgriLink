@@ -18,7 +18,7 @@ const CombineCollectionSection = () => {
             <h2 className='text-2xl font-bold text-gray-900 mb-3'>
               Vegetables
             </h2>
-            <Link to="/collections/vegetables" className="text-gray-900 underline">Shop Now</Link>
+            <Link to="/collections/all?category=Vegetables" className="text-gray-900 underline">Shop Now</Link>
           </div>
         </div>
 
@@ -29,7 +29,7 @@ const CombineCollectionSection = () => {
             <h2 className='text-2xl font-bold text-gray-900 mb-3'>
               Fruits
             </h2>
-            <Link to="/collections/fruits" className="text-gray-900 underline">Shop Now</Link>
+            <Link to="/collections/all?category=Fruits" className="text-gray-900 underline">Shop Now</Link>
           </div>
         </div>
 
@@ -40,7 +40,7 @@ const CombineCollectionSection = () => {
             <h2 className='text-2xl font-bold text-gray-900 mb-3'>
               Dairy Products
             </h2>
-            <Link to="/collections/dairy-products" className="text-gray-900 underline">Shop Now</Link>
+            <Link to="/collections/all?category=Dairy+Products" className="text-gray-900 underline">Shop Now</Link>
           </div>
         </div>
 
@@ -51,7 +51,7 @@ const CombineCollectionSection = () => {
             <h2 className='text-2xl font-bold text-gray-900 mb-3'>
               Grains & Pulses
             </h2>
-            <Link to="/collections/grains-pulses" className="text-gray-900 underline">Shop Now</Link>
+            <Link to="/collections/all?category=Grains+%26+Pulses" className="text-gray-900 underline">Shop Now</Link>
           </div>
         </div>
 
