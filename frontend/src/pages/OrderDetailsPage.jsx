@@ -24,7 +24,7 @@ const OrderDetailsPage = () => {
         {!orderDetails ? (
             <p>No Order details found</p> 
         ) : (<div className='p-4 sm:p-6 rounded-lg border'>
-               {/**Order Info */}
+               {/**Order Info */ }
                <div className='flex flex-col sm:flex-row justify-between mb-8'>
                     <div>
                        <h3 className='text-lg md:text-xl font-semibold'>
@@ -53,7 +53,7 @@ const OrderDetailsPage = () => {
                         </span>
                     </div>
                </div>
-               {/**Customer , Payment , Shipping Info */}
+               {/**Customer , Payment , Shipping Info */ }
                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8'>
                     <div>
                         <h4 className='text-lg font-semibold mb-2'>
@@ -70,57 +70,56 @@ const OrderDetailsPage = () => {
                         </h4>
                         <p>Shipping Method: {orderDetails.shippingMethod}</p>
                         <p> Address:{" "}
-                            {`${orderDetails.shippingAddress.city}, ${orderDetails.shippingAddress.country}`}
+                            {`${orderDetails.shippingAddress?.city}, ${orderDetails.shippingAddress?.country}`}
                         </p>
                     </div>
                </div>
-               {/**Product List */}
+               {/**Product List */ }
                <div className='overflow-x-auto'>
                 <h4 className='text-lg font-semibold mb-4'>Products</h4>
-                <table className='min-w-full text-gray-600 mb-4'>
-                     <thead className='bg-gray-100'>
-                        <tr>
-                            <th className='py-2 px-4'>Name</th>
-                            <th className='py-2 px-4'>Unit Price</th>
-                            <th className='py-2 px-4'>Quantity</th>
-                            <th className='py-2 px-4'>Total</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        {orderDetails.orderItems.map((item) => (
-                            <tr key={item.productId} className='border-b'>
-                                <td className='py-2 px-4 flex items-center'>
-                                    <img
-                                       src={item.image}
-                                       alt={item.name}
-                                       className='w-12 h-12 object-cover rounded-lg mr-4' 
-                                    />
-                                    <Link to={`/product/${item.productId}`}
-                                    className="text-blue-500 hover:underline">
-                                        {item.name}
-                                    </Link>
-                                </td>
-                                <td className='py-2 px-4'>${item.price}</td>
-                                <td className='py-2 px-4'>${item.quantity}</td>
-                                <td className='py-2 px-4'>${item.price * item.quantity}</td>
-                            </tr>
-                        ) )}
-                     </tbody>
-                </table>
+                <table className='min-w-full text-gray-600 mb-4 table-auto'>
+                <thead className='bg-gray-100'>
+                    <tr>
+                       <th className='py-2 px-4 text-left w-1/2'>Name</th>
+                       <th className='py-2 px-4 text-center w-1/6'>Unit Price</th>
+                       <th className='py-2 px-4 text-center w-1/6'>Quantity</th>
+                       <th className='py-2 px-4 text-center w-1/6'>Total</th>
+                   </tr>
+                </thead>
+           <tbody>
+            {orderDetails?.orderItems?.map((item) => (
+              <tr key={item.productId} className='border-b'>
+              <td className='py-2 px-4 flex items-center'>
+                   <img
+                     src={item.image}
+                     alt={item.name}
+                    className='w-12 h-12 object-cover rounded-lg mr-4'
+                   />
+                   <Link to={`/product/${item.productId}`} className='text-blue-500 hover:underline'>
+                       {item.name}
+                   </Link>
+                   </td>
+                   <td className='py-2 px-4 text-center'>₹{item.price}</td>
+                   <td className='py-2 px-4 text-center'>{item.quantity}</td>
+                   <td className='py-2 px-4 text-center'>₹{item.price * item.quantity}</td>
+                   </tr>
+                   ))}
+         </tbody>
+        </table>
+  
+
+               
                </div>
 
-               {/**Back to Orders Link */}
+               {/**Back to Orders Link */ }
                <Link to="/my-orders" className='text-blue-500 hover:underline'>
                    Back to My Orders
                </Link>
-
-              
-               
-               
+           
              </div>
             )}
     </div>
   )
 }
 
-export default OrderDetailsPage
+export default OrderDetailsPage 
