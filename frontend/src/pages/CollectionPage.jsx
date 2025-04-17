@@ -1,6 +1,89 @@
-
-
 import React, { useEffect, useState, useRef } from 'react';
+import { FaFilter } from "react-icons/fa";
+import FilterSidebar from '../components/Products/FilterSidebar';
+import SortOptions from '../components/Products/SortOptions';
+import ProductGrid from '../components/Products/ProductGrid';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProductsByFilters } from '../redux/slices/productsSlice';
+
+const CollectionPage = () => {
+    const { collection } = useParams();
+    const [searchParams] = useSearchParams();
+    const dispatch = useDispatch();
+    const { products, loading, error } = useSelector((state) => state.products);
+
+    const queryParams = Object.fromEntries([...searchParams]);
+    const search = searchParams.get("search") || "";
+
+    const sidebarRef = useRef(null);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    useEffect(() => {
+        dispatch(fetchProductsByFilters({ collection, ...queryParams }));
+    }, [dispatch, collection, search]); // Using `search` instead of `searchParams`
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
+    const handleClickOutside = (e) => {
+        if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+            setIsSidebarOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    return (
+        <div className="min-h-screen flex flex-col">
+            <div className="flex flex-grow">
+                {/* Sidebar */}
+                <div
+                    ref={sidebarRef}
+                    className={`${
+                        isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                    } fixed inset-y-0 left-0 w-180 flex-shrink-0 bg-white shadow-lg transition-transform duration-300 lg:static lg:translate-x-0 z-50`}
+                >
+                    <FilterSidebar />
+                </div>
+
+                {/* Mobile overlay */}
+                {isSidebarOpen && (
+                    <div
+                        onClick={toggleSidebar}
+                        className="fixed inset-0 z-40 bg-black bg-opacity-30 lg:hidden"
+                    />
+                )}
+
+                {/* Main content */}
+                <div className="flex-grow p-4 lg:ml-180">
+                    <button
+                        onClick={toggleSidebar}
+                        className="lg:hidden border p-2 flex justify-center items-center mb-4"
+                    >
+                        <FaFilter className="mr-2" /> Filters
+                    </button>
+
+                    <h2 className="text-2xl uppercase mb-4">{collection} Collection</h2>
+
+                    <SortOptions />
+                    <ProductGrid products={products} loading={loading} error={error} />
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default CollectionPage;
+
+
+/*import React, { useEffect, useState, useRef } from 'react';
 import { FaFilter } from "react-icons/fa";
 import FilterSidebar from '../components/Products/FilterSidebar';
 import SortOptions from '../components/Products/SortOptions';
@@ -43,8 +126,8 @@ const CollectionPage = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <div className="flex flex-grow">
-                {/* Sidebar */  }
-                <div
+                {/* Sidebar */  // }
+  /*              <div
                     ref={sidebarRef}
                     className={`${
                         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -53,16 +136,16 @@ const CollectionPage = () => {
                     <FilterSidebar />
                 </div>
 
-                {/* Mobile overlay */  }
-               {isSidebarOpen && (
+                {/* Mobile overlay */  // }
+ /*              {isSidebarOpen && (
                     <div
                         onClick={toggleSidebar}
                         className="fixed inset-0 z-40 bg-black bg-opacity-30 lg:hidden"
                     />
                 )}
 
-                {/* Main content */ }
-                <div className="flex-grow p-4 lg:ml-180">
+                {/* Main content */ // }
+  /*              <div className="flex-grow p-4 lg:ml-180">
                     <button
                         onClick={toggleSidebar}
                         className="lg:hidden border p-2 flex justify-center items-center mb-4"
@@ -80,7 +163,7 @@ const CollectionPage = () => {
     );
 };
 
-export default CollectionPage; 
+export default CollectionPage; */
 
 
 
