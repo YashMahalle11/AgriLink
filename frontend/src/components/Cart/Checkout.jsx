@@ -1,4 +1,5 @@
 
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RazorpayButton from './RazorpayButton'; // ✅ Only Razorpay now
@@ -91,8 +92,8 @@ const Checkout = () => {
 
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto py-10 px-6 tracking-tighter'>
-            {/* Left Section */}
-            <div className='bg-white rounded-lg p-6'>
+            {/* Left Section */ }
+             <div className='bg-white rounded-lg p-6'>
                 <h2 className='text-2xl uppercase mb-6'>Checkout</h2>
                 <form onSubmit={handleCreateCheckout}>
                     <h3 className='text-lg mb-4'>Contact Details</h3>
@@ -215,7 +216,7 @@ const Checkout = () => {
                 </form>
             </div>
 
-            {/* Right Section */}
+            {/* Right Section */ }
             <div className='bg-gray-50 p-6 rounded-lg'>
                 <h3 className='text-lg mb-4'>Order Summary</h3>
                 <div className='border-t py-4 mb-4'>
@@ -231,6 +232,7 @@ const Checkout = () => {
                                     <h3 className='text-md'>{product.name}</h3>
                                     <p className='text-gray-500'>Size: {product.size}</p>
                                     <p className='text-gray-500'>Color: {product.color}</p>
+                                   
                                 </div>
                             </div>
                             <p className='text-xl'>Rs {product.price?.toLocaleString()}</p>
@@ -254,7 +256,7 @@ const Checkout = () => {
     );
 };
 
-export default Checkout;
+export default Checkout;   
 
 
 
