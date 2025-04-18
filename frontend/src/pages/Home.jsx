@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsByFilters } from '../redux/slices/productsSlice';
 import axios from "axios";
 
+
 const Home = () => {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => {
@@ -31,10 +32,13 @@ const Home = () => {
     
     dispatch(
       fetchProductsByFilters({
-        category: ["Vegetables", "Fruits", "Dairy Products", "Grains & Pulses"],
+        category: [],
         limit: 8,
       })
-    ).then((action) => {
+    )
+     // In Home.jsx useEffect
+
+    .then((action) => {
       // Debug after fetching
       if (action.meta.requestStatus === 'fulfilled') {
         console.log("Fetched products:", action.payload);
@@ -69,7 +73,7 @@ const Home = () => {
       <CombineCollectionSection />
       <LimitedTimeOffers />
 
-      {/* Best Seller */}
+      {/* Best Seller */  }
       <div className="mb-12">
         <h2 className='text-3xl text-center font-bold mb-4'>Best Seller</h2>
         {bestSellerError ? (
@@ -81,7 +85,7 @@ const Home = () => {
         )}
       </div>
 
-      {/* Product Grid */}
+      {/* Product Grid */   }
       <div className='container mx-auto mb-12'>
         <h2 className='text-3xl text-center font-bold mb-4'>
           Fresh Products Available
@@ -92,11 +96,14 @@ const Home = () => {
             <p className="font-semibold">{error}</p>
           </div>
         ) : (
+          
           <ProductGrid 
             products={products} 
             loading={loading} 
             error={error} 
           />
+        
+      
         )}
       </div>
 
@@ -106,7 +113,21 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*import React, { useState, useEffect } from "react";
 import Hero from '../components/Layout/Hero';
 import CombineCollectionSection from '../components/Products/CombineCollectionSection';
