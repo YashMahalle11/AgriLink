@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { fetchUsers } from '../../redux/slices/adminSlice';
 import { addUser } from '../../redux/slices/adminSlice';
 import { updateUser } from '../../redux/slices/adminSlice';
+import { deleteUser } from '../../redux/slices/adminSlice';
+
 
 const UserManagement = () => {
     const dispatch = useDispatch();
